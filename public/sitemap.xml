@@ -3,34 +3,44 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://example.com/posts/my-first-posts/</loc>
-    <lastmod>2018-07-18T23:52:14+07:00</lastmod>
+    <loc>https://fahmifan.github.io/blog/make-cv-from-html-css-js.md/</loc>
+    <lastmod>2018-07-12T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://example.com/posts/2018-2-24-food-app/</loc>
+    <loc>https://fahmifan.github.io/blog/trying-mobile-app-development/</loc>
+    <lastmod>2018-02-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://fahmifan.github.io/blog/one-sprint-one-app/</loc>
     <lastmod>2018-02-12T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://example.com/categories/</loc>
+    <loc>https://fahmifan.github.io/about/</loc>
+    <lastmod>2018-02-01T01:37:37+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://fahmifan.github.io/blog/</loc>
+    <lastmod>2018-07-12T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://example.com/</loc>
-    <lastmod>2018-07-18T23:52:14+07:00</lastmod>
+    <loc>https://fahmifan.github.io/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://example.com/posts/</loc>
-    <lastmod>2018-07-18T23:52:14+07:00</lastmod>
+    <loc>https://fahmifan.github.io/tags/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://example.com/tags/</loc>
+    <loc>https://fahmifan.github.io/</loc>
+    <lastmod>2018-07-12T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
