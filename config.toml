@@ -5,7 +5,7 @@ canonifyurls = true
 contentdir = "content"
 languageCode = "en-US"
 layoutdir = "layouts"
-publishdir: docs
+publishdir = "public"
 author = "Fahmi Irfan"
 title = "fahmifan's blog"
 disqusshortname = "fahmifan"
