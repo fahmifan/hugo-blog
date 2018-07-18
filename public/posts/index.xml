@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Cocoa Enhanced</title>
+    <link>https://example.com/posts/</link>
+    <description>Recent content in Posts on Cocoa Enhanced</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Wed, 18 Jul 2018 23:52:14 +0700</lastBuildDate>
+    
+	<atom:link href="https://example.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>My First Posts</title>
+      <link>https://example.com/posts/my-first-posts/</link>
+      <pubDate>Wed, 18 Jul 2018 23:52:14 +0700</pubDate>
+      
+      <guid>https://example.com/posts/my-first-posts/</guid>
+      <description>My first posts using hugo</description>
+    </item>
+    
+    <item>
+      <title>One sprint, One App</title>
+      <link>https://example.com/posts/2018-2-24-food-app/</link>
+      <pubDate>Mon, 12 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/posts/2018-2-24-food-app/</guid>
+      <description>For the last week I do sprint for making a food app. When i go to college, sometimes i have to stay overnight in my friends house. Doing homework make us hungry and when we want to order food we don&amp;rsquo;t have the menus and it was annoying so i want to make a webapp to display a menus of small restaurants there. It build using ReactJs, tachyons, &amp;amp; styled-components for frontend &amp;amp; lumen for backend api.</description>
+    </item>
+    
+  </channel>
+</rss>
