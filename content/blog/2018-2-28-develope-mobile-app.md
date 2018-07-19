@@ -1,6 +1,7 @@
 ---
 title: Trying mobile app development
 date: 2018-02-28T03:29:18+07:00
+author: "fahmifan"
 draft: false
 ---
 

@@ -1,6 +1,8 @@
 ---
 title : Make resume from html-css-js.md
 date: 2018-07-12T03:29:18+07:00
+author: "fahmifan"
+draft: true
 ---
 
 this is the command that does the job. Well for now it only ouput properly in image format. I am still looking for solution to output in pdf format. This is using [Wkhtmltopdf](https://wkhtmltopdf.org/) : 
