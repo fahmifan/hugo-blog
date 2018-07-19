@@ -9,7 +9,7 @@ hugo --config config.toml # if using a theme, replace with `hugo -t <YOURTHEME>`
 cd public
 
 # hapus symbolic link img
-rm -rf static/img
+rm -rf photos/
 
 # Add changes to git.
 git add .
@@ -27,6 +27,6 @@ git push origin master
 # Come Back up to the Project Root
 cd ..
 
-git add public/
+git add public/ content/
 git commit -m "rebuild site `date`"
 git push origin master
