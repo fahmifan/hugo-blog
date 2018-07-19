@@ -1,6 +1,7 @@
 ---
 title: Trying mobile app development
 date: 2018-02-28T03:29:18+07:00
+draft: false
 ---
 
 At school we were told to make a mobile app for android. The teacher said we can use Java, because this is for the lecture of OO Programming 2, the OO Programming 1 was about basic Java SE. For this lecture we will develop mobile app alone not in a team.
