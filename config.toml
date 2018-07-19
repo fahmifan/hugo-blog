@@ -7,8 +7,9 @@ languageCode = "en-US"
 layoutdir = "layouts"
 publishdir = "public"
 author = "Fahmi Irfan"
-title = "fahmifan's blog"
+title = "A Blog"
 disqusshortname = "https-fahmifan-github-io"
+disablefancyfonts = true
 pluralizelisttitles = false
 
 [permalinks]
