@@ -8,5 +8,5 @@ My family just open a bubur resto. The taste is delicious, really :D. It located
 ![afternoon photo of the opening](/photos/opening-bubur/1-opening-bubur.jpg)
 It was openning in my college break, i was helping opening it, even tho i can't serve the `bubur` for a customer `XD`, so i just delivered the bubur to customer when it ready.
 
-It's fun!
+It was fun!
   
