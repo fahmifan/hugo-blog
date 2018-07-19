@@ -2,7 +2,3 @@
 	path = public
 	url = https://github.com/fahmifan/fahmifan.github.io.git
 	branch = master
-[submodule "themes/cocoa-eh2"]
-	path = themes/cocoa-eh2
-	url = https://github.com/fahmifan/cocoa-eh.git
-	branch = master
