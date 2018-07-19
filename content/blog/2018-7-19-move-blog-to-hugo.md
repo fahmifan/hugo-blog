@@ -1,7 +1,7 @@
 ---
 title: "Move Blog to Hugo"
 date: 2018-07-19T03:29:18+07:00
-draft: true
+draft: false
 author: "fahmifan"
 ---
 
