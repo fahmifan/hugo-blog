@@ -24,4 +24,7 @@ Then you make two version of it and send the new version you want to test to you
 
 Then after you collect the data about your test. You can decide now, if the change on the button affect the `sign in/up` rates to your app.
 
-_Comming soon: A/B Testing using Firebase Remote Config_
+### _Comming soon:_ 
+    
+* _A/B Testing using Firebase Remote Config_
+* _Android Starter Kit Genereator using Yeoman_
