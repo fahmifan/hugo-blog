@@ -4,9 +4,8 @@ date: 2018-02-01T01:37:37+07:00
 draft: true
 ---
 
-Passionate developer. Students at University of Padjadjaran. 
+Passionate developer 
 
-    Android Development using Android Studio and Java
-    Web Development using Codeigniter 3 or ReactJs
+    Android, Java, Js, ReactJs, PWA, Go, PHP
 
 
