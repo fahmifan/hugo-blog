@@ -1,6 +1,6 @@
 ---
 title: "Opta App"
-date: 2018-12-29T11:29:41+07:00
+date: 2018-11-26T11:29:41+07:00
 draft: true
 ---
 
@@ -11,5 +11,7 @@ It uses QR Scanner for the payment method. It differ from already known QR payme
 
 <img src="https://raw.githubusercontent.com/miun173/photos/master/opta-app/opta-bayar-bus.gif" alt="Payment" style="margin: auto;">
 
-The backend can be found [here](https://github.com/IbnuAhsani/OPTA-Backend)
+[OPTA Passenger](https://github.com/miun173/opta-fe)
+
+[OPTA Admin (+Backend)](https://github.com/IbnuAhsani/OPTA-Backend)
 
