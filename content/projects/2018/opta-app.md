@@ -3,7 +3,6 @@ title: "Opta App"
 date: 2018-12-29T11:29:41+07:00
 draft: true
 ---
-# OPTA
 
 OPTA (Online Payment for Transportation) is a application for easing bus (like Damri) payment.
 It uses QR Scanner for the payment method. It differ from already known QR payment app, OPTA is build for bus payment, user can see the availabel bus routes.
