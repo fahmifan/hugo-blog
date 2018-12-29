@@ -6,6 +6,6 @@ draft: true
 
 Passionate developer 
 
-    Android, Java, Js, ReactJs, PWA, Go, PHP
+    Android, Java, Js, ReactJs, PHP
 
 
