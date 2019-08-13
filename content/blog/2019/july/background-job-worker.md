@@ -1,7 +1,7 @@
 ---
 title: "Background Job Worker"
 date: 2019-07-09T08:06:42+07:00
-draft: true
+draft: false
 ---
 
 Dalam pengembangan web, request yang memerlukan process yang lama (long running) dapat memblokir request lain. Kalo seperti ini, maka web kita tidak responsive dan cepat. Process lama ini dapat kita alihkan ke process lain yang berjalan di samping process utama yang disebut worker.
