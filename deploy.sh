@@ -15,7 +15,7 @@ rm -rf photos/
 git add .
 
 # Commit changes.
-msg="rebuilding fahmifan.github.io `date`"
+msg="rebuilding miun173.github.io `date`"
 if [ $# -eq 1 ]
   then msg="$1"
 fi
