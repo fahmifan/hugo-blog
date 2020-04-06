@@ -8,7 +8,7 @@ layoutdir = "layouts"
 publishdir = "public"
 author = "Fahmi Irfan"
 title = "A Blog"
-disqusshortname = "https-fahmifan-github-io"
+disqusShortname = "https-fahmifan-github-io"
 disablefancyfonts = true
 pluralizelisttitles = false
 
@@ -34,6 +34,7 @@ twitter = "miun173"
 social_banner = "img/banner.png"
 posts_navigation = true
 small_banner_logo = false
+disqusShortname = "miun173-github-io"
 
 [params.colors]
 identifier = "#527fc1f"
