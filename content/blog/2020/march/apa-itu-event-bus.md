@@ -217,7 +217,6 @@ type (
 	}
 )
 
-// NewPaymentService :nodoc:
 func NewPaymentService(os OrderService) PaymentService {
 	return &paymentService{
 		orderService: os,
@@ -243,7 +242,6 @@ import (
 	"github.com/mustafaturan/monoton/sequencer"
 )
 
-// NewBus :nodoc:
 func NewBus() *bus.Bus {
 	// configure id generator (it doesn't have to be monoton)
 	node := uint64(1)
