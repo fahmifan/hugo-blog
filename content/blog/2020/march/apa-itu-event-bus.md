@@ -48,7 +48,7 @@ Selanjutnya kita akan buat model nya terlebih dahulu. Buat package `model`, lalu
 │   └── model.go
 ```
 
-Di package model ini, kita membuat tiga buah `struct`, yaitu `Product`, `Order`, dan `Payment`. 
+Di package model ini, kita membuat tiga buah `struct` yaitu `Product`, `Order`, dan `Payment`. 
 Sebuah Order dapat memiliki banyak product di dalam nya. 
 ```go
 package model
@@ -85,13 +85,12 @@ const (
 ```
 
 Selanjutnya, kita akan buat membuat package `service`. Ada tiga buat service yang dibuat yaitu `ProductService`, `OrderService` dan `PaymentService` yang semuanya merupakan `interface`.
-
-`ProductService` akan memiliki dua method yaitu `List` dan `FindProductByID`. Lalu, `OrderService` memiliki dua method yaitu `CreateOrder` dan `FindOrderByID`. Dan terkahir, `PaymentService` akan memiliki dua method juga yaitu `CreatePayment` dan `PayBills`.
-Ketikkan kode berikut pada `service/service.go`
 ```
 └── service
     └── service.go
 ```
+
+`ProductService` akan memiliki method yaitu `List`. Lalu, `OrderService` memiliki method `CreateOrder`. Terkahir, `PaymentService` akan memiliki method `CreatePayment`.
 
 ```go
 package service
@@ -101,23 +100,27 @@ import "shop/model"
 type (
 	ProductService interface {
 		List() []model.Product
-		FindProductByID(id int64) *model.Product
 	}
 
 	OrderService interface {
 		CreateOrder(productIDs []int64) *model.Order
-		FindOrderByID(id int64) *model.Order
 	}
 
 	PaymentService interface {
 		CreatePayment(orderID int64) *model.Payment
-		PayBills(payment *model.Payment) bool
 	}
 )
 ```
 
 Selanjutnya kita perlu melakukan implementasi dari `interface` tersebut dengan `struct`.
-Pada package `service` buat file `product_service` dengan isi sebagai berikuta
+Pada package `service` buat file `product_service`. 
+```
+└── service
+    ├── product_service.go
+```
+
+Untuk mempersingkat, data product akan kita simpan di dalam field `products`. Lalu, dengan fungsi `NewProductService` kita melakukan instansiasi `productService` sekaligus mengisi field `products` dengan data dummy.
+
 ```go
 package service
 
@@ -133,9 +136,9 @@ type productService struct {
 func NewProductService() ProductService {
 	return &productService{
 		products: []model.Product{
-			model.Product{ID: time.Now().UnixNano(), Price: 100.0},
-			model.Product{ID: time.Now().UnixNano(), Price: 200.0},
-			model.Product{ID: time.Now().UnixNano(), Price: 300.0},
+			model.Product{ID: 111, Price: 100.0},
+			model.Product{ID: 112, Price: 200.0},
+			model.Product{ID: 113, Price: 300.0},
 		},
 	}
 }
@@ -143,19 +146,16 @@ func NewProductService() ProductService {
 func (ps *productService) List() []model.Product {
 	return ps.products
 }
-
-func (ps *productService) FindProductByID(id int64) *model.Product {
-	for _, product := range ps.products {
-		if product.ID == id {
-			return &product
-		}
-	}
-
-	return nil
-}
 ```
 
-Lalu, buat file `order_service` pada package service dengan isi seperti di bawah ini. Pada kodingan terdapat field `bus` dengan tipe `*bus.Bus` yang digunakan sebagai event bus untuk publish event. pacakge yang diguanakn adalah `github.com/mustafaturan/bus`. 
+Lalu, buat file `order_service` pada package `service`. 
+```
+└── service
+    ├── order_service.go
+```
+
+Pada kode ini, terdapat field `bus` dengan tipe `*bus.Bus` yang digunakan untuk mempublish event/topic. pacakge yang digunakan adalah `github.com/mustafaturan/bus`. Argumen ke dua pada fungsi `Emit` adalah nama topic yg dipublish, di sini kita gunakan nama `order.created`. Fungsi `Emit` ini kita akan jalankan di dalam goroutine baru.
+
 ```go
 package service
 
@@ -173,8 +173,6 @@ import (
 type orderService struct {
     bus            *bus.Bus
     productService ProductService
-
-    orders []model.Order
 }
 
 func NewOrderService(ps ProductService, bus *bus.Bus) OrderService {
@@ -185,37 +183,184 @@ func NewOrderService(ps ProductService, bus *bus.Bus) OrderService {
 }
 
 func (o *orderService) CreateOrder(productIDs []int64) *model.Order {
-	for _, id := range productIDs {
-		if product := o.productService.FindProductByID(id); product == nil {
-			return nil
-		}
-	}
-
 	order := &model.Order{
 		ID:         time.Now().UnixNano(),
 		ProductIDs: productIDs,
 	}
 
-	go func() {
-		ev, err := o.bus.Emit(context.Background(), eventbus.OrderCreated, *order)
-		if err != nil {
-			log.Error(err)
-			return
-		}
+	log.Info("create order, productIDs: ", productIDs)
 
-		log.Info(ev.Topic, " ", ev.TxID)
-	}()
+	// kita publish atau emit "order.created"
+	event, err := o.bus.Emit(context.Background(), "order.created", *order)
+	if err != nil {
+		log.Error(err)
+		return
+	}
 
 	return order
 }
 
-func (o *orderService) FindOrderByID(id int64) *model.Order {
-	for _, order := range o.orders {
-		if order.ID == id {
-			return &order
-		}
-	}
+```
 
-	return nil
+Service yang dibuat selanjutnya adalah `payment_service`. Pada service ini, tedapat satu method `CreatePayment`.
+```go
+package service
+
+import (
+	"shop/model"
+	"time"
+)
+
+type (
+	paymentService struct {
+		orderService OrderService
+	}
+)
+
+// NewPaymentService :nodoc:
+func NewPaymentService(os OrderService) PaymentService {
+	return &paymentService{
+		orderService: os,
+	}
+}
+
+func (ps *paymentService) CreatePayment(orderID int64) *model.Payment {
+	return &model.Payment{
+		ID:      time.Now().UnixNano(),
+		OrderID: orderID,
+		Status:  model.PaymentStatusPending,
+	}
 }
 ```
+
+Kemudian, kita akan membuat instansiasi pacakge `bus`. Fungsi constructor ini saya ambil dari contoh yang diberikan di repo `github.com/mustafaturan/bus`.
+```go
+package eventbus
+
+import (
+	"github.com/mustafaturan/bus"
+	"github.com/mustafaturan/monoton"
+	"github.com/mustafaturan/monoton/sequencer"
+)
+
+// NewBus :nodoc:
+func NewBus() *bus.Bus {
+	// configure id generator (it doesn't have to be monoton)
+	node := uint64(1)
+	initialTime := uint64(1577865600000) // set 2020-01-01 PST as initial time
+	m, err := monoton.New(sequencer.NewMillisecond(), node, initialTime)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	// init an id generator
+	var idGenerator bus.Next = (*m).Next
+
+	// create a new bus instance
+	b, err := bus.NewBus(idGenerator)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	return b
+}
+```
+
+Oke, selanjutnya kita akan membuat package `eventhandler`. 
+```
+├── eventhandler
+│   └── handler.go
+```
+
+Event bus ini memiliki sebuah handler yg berupa fungsi. Handler ini gunanya untuk menerima event-event yang diemit ke dalam event bus. Dari event yang diterima kita dapat mengecek jenis topic-nya.
+```go
+package eventhandler
+
+import (
+	"shop/eventbus"
+	"shop/model"
+	"shop/service"
+
+	"github.com/mustafaturan/bus"
+	log "github.com/sirupsen/logrus"
+)
+
+type EventHandler struct {
+	PaymentService service.PaymentService
+}
+
+func (e *EventHandler) HandleOrder(event *bus.Event) {
+	switch event.Topic {
+	case "order.created":
+		log.Infof("recieved event %v", event.ID)
+		order, ok := event.Data.(model.Order)
+		if !ok {
+			return
+		}
+
+		payment := e.PaymentService.CreatePayment(order.ID)
+		log.Info("create payment", payment)
+	}
+}
+```
+
+Sekarang kita akan buat fungsi main, di sini kita akan melakukan wiring service-service yang sudah dibuat.
+```go
+package main
+
+import (
+	"os"
+	"os/signal"
+	"syscall"
+
+	"shop/eventbus"
+	"shop/eventhandler"
+	"shop/service"
+
+	"github.com/mustafaturan/bus"
+	log "github.com/sirupsen/logrus"
+)
+
+func main() {
+	handler := &eventhandler.EventHandler{}
+
+	bbus := eventbus.NewBus()
+	bbus.RegisterTopics([]string{"order.created"})
+	bbus.RegisterHandler("order-channel", &bus.Handler{
+		Matcher: "order.*", // match untuk semua order
+		Handle:  handler.HandleOrder,
+	})
+
+	productService := service.NewProductService()
+	orderService := service.NewOrderService(productService, bbus)
+	paymentSerivce := service.NewPaymentService(orderService)
+
+	handler.PaymentService = paymentSerivce
+
+	products := productService.List()
+	orderService.CreateOrder([]int64{products[0].ID})
+
+	// kode berikut untuk memblok goroutine utama
+	sigCh := make(chan os.Signal)
+	done := make(chan bool)
+	signal.Notify(sigCh, os.Interrupt, syscall.SIGTERM)
+	go func() {
+		<-sigCh
+		log.Info("exiting...")
+		done <- true
+	}()
+	<-done
+}
+```
+
+Ketika dijalankan maka output dari program akan seperti ini
+```
+INFO[0000] create order, productIDs: [1586206522725414000] 
+INFO[0000] recieved event 0096Tf1h00000001              
+INFO[0000] create payment{id: 1586206522725562000, order_id: 1586206522725417000, status: pending} 
+^CINFO[0001] exiting...                                   
+```
+
+`0096Tf1h00000001` merupakan id dari event yang diemit, dari urutan log yg muncul.
+
+Jadi, begitulah cara kerja dan penggunaan event bus. Mungkin, di artikel selanjutnya akan dibahas implementasi event bus pada sebuah web service.
