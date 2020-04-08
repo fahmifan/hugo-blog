@@ -18,7 +18,7 @@ Kita akan coba menggunakan event bus dalam program yang akan kita buat. Dan kita
 
 > Jika kalian belum tahu tentang bahasa Golang, bisa cek [Dasar Pemrograman Golang](https://dasarpemrogramangolang.novalagung.com/). 
 
-Yang akan kita jadikan kasus adalah order barang dan pyament pada sebuah **Online shop**. Ketika user membuat sebuah order maka akan dibuat sebuah payment.
+Yang akan kita jadikan kasus adalah order barang dan payment pada sebuah **Online shop**. Ketika user membuat sebuah order maka akan dibuat sebuah payment.
 ```
 
 +-------------+
@@ -84,7 +84,7 @@ const (
 )
 ```
 
-Selanjutnya, kita akan buat membuat package `service`. Ada tiga buat service yang dibuat yaitu `ProductService`, `OrderService` dan `PaymentService` yang semuanya merupakan `interface`.
+Selanjutnya, kita akan membuat package `service`. Ada tiga buah service yang dibuat yaitu `ProductService`, `OrderService` dan `PaymentService` yang semuanya merupakan `interface`.
 ```
 └── service
     └── service.go
@@ -154,7 +154,7 @@ Lalu, buat file `order_service` pada package `service`.
     ├── order_service.go
 ```
 
-Pada kode ini, terdapat field `bus` dengan tipe `*bus.Bus` yang digunakan untuk mempublish event/topic. pacakge yang digunakan adalah `github.com/mustafaturan/bus`. Argumen ke dua pada fungsi `Emit` adalah nama topic yg dipublish, di sini kita gunakan nama `order.created`. Fungsi `Emit` ini kita akan jalankan di dalam goroutine baru.
+Pada kode ini, terdapat field `bus` dengan tipe `*bus.Bus` yang digunakan untuk mempublish event/topic. pacakge yang digunakan adalah `github.com/mustafaturan/bus`. Argumen ke dua pada fungsi `Emit` adalah nama topic yg dipublish, di sini kita gunakan nama `order.created`.
 
 ```go
 package service
@@ -202,7 +202,7 @@ func (o *orderService) CreateOrder(productIDs []int64) *model.Order {
 
 ```
 
-Service yang dibuat selanjutnya adalah `payment_service`. Pada service ini, tedapat satu method `CreatePayment`.
+Service yang dibuat selanjutnya adalah `payment_service`. Pada service ini, terdapat satu method `CreatePayment`.
 ```go
 package service
 
