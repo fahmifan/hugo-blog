@@ -1,6 +1,7 @@
 ---
 title: "Background Job Worker"
 date: 2019-07-09T08:06:42+07:00
+author: "miun173"
 draft: false
 ---
 

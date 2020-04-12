@@ -1,7 +1,7 @@
 ---
 title: "Opening Bubur Resto"
 date: 2017-08-16T15:35:17+07:00
-draft: true
+draft: false
 ---
 
 My family just open a bubur resto. The taste is delicious, really :D. It located in Ahmad Yani Street No.909, Bandung. This is what it looks like: 

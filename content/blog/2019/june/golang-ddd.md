@@ -1,7 +1,8 @@
 ---
 title: "Domain Driven Design (1)"
 date: 2019-06-24T08:06:30+07:00
-draft: true
+author: "miun173"
+draft: false
 ---
 
 Dalam kehidupan, manusia tidak lepas dari pekerjaan. Pekerjaan yang dilakukan pun terkadang berulang dan memiliki pola tersendiri. Ada kalanya bertemu masalah kecepatan dan kapasitas dalam bekerja. Pekerjaan atau proses yang berulang dapat dilakukan otomasi menggunakan software. Selain itu, software dapat digunakan dalam pemecahan masalah. 

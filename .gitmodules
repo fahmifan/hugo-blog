@@ -6,3 +6,6 @@
 	path = themes/cocoa-eh
 	url = git@github.com:miun173/cocoa-eh.git
 	branch = master
+[submodule "static/photos"]
+	path = static/photos
+	url = git@github.com:miun173/photos.git
