@@ -3,6 +3,7 @@ title: "Bekraf Developer Conference"
 date: 2018-12-04T08:46:23+07:00
 author: "miun173"
 draft: false
+tags: [BDC, Seminar, Conference]
 ---
 
 <!-- 

@@ -1,8 +1,9 @@
 ---
 title: "Adb Meetup 4"
 date: 2018-07-26T05:47:03+07:00
-author: "miun173"
-draft: true
+draft: false
+author: "fahmi irfan"
+tags: [ADB, Meetup, Android, Bandung, AB Testing, Yeoman]
 ---
 
 So last night i attend my first Android Developer Meetup in Bandung from ADB that held in Dicoding Space. The topics are about "A/B Testing Using Firebase Remote Config" & "Make a Android Starterkit using Yeoman Generator".

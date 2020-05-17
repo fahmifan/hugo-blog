@@ -2,7 +2,8 @@
 title: "Apa Itu Event Bus ?"
 date: 2020-04-05T15:43:31+07:00
 draft: false
-author: "miun173"
+author: "fahmi irfan"
+tags: [Event Bus, Programming, Tutorial]
 ---
 
 Event bus adalah sebuah mekanisme yg bisa dipakai untuk berkomunikasi antar komponen tanpa saling tahu satu sama lain. Kalau bisa saya bilang ini juga bagian *pub-sub* pattern. Lalu, apa kegunaan dari event bus ini? 
