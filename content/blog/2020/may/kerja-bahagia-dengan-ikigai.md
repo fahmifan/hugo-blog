@@ -2,6 +2,7 @@
 title: "Kerja Bahagia Dengan Ikigai"
 date: 2020-05-17T16:04:03+07:00
 draft: true
+author: "fahmi irfan"
 tags: [Personal Development, Pendidikan]
 ---
 
