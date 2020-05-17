@@ -15,4 +15,4 @@ Di artikel ini, sosok yg di-highlight adalah Chris Do. Dan video dia ttg ["How T
 
 Dari yang gw tonton, cara mencari ikigai adalah dengan menuliskan setiap poin sesuai kategori ikigai. Ketika menulis poin-poin tsb, usahakan lupakan kategori lain, fokus aja sama kategori yang lagi ditulis. Misal kita akan menulis kategori Love atau Disukai. Ya udah, kita fokus pada cari hal-hal yang kita sukai atau ingin kita lakukan. Ga perlu yang kita tulis itu, dibayar kah, kita kuasai kah atau dubutuhin sama dunia.
 
-Setelah kita nulis semua poin di setiap kategori. Kita cari poin-poin yang saling berhubungan dan dimasukkan ke irisan diagram yang ada di tengah (ikigai).
+Setelah kita nulis semua poin di setiap kategori. Kita cari poin-poin yang saling berhubungan dan dimasukkan ke irisan diagram yang ada di tengah (ikigai). Buat lebih detail nya bisa cek langsung di [video nya](https://www.youtube.com/watch?v=G2SqqjRn_c0)
