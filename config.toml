@@ -1,5 +1,5 @@
 baseurl = "https://miun173.github.io/"
-theme = "cocoa-eh"
+# theme = "cocoa-eh"
 builddrafts = true
 canonifyurls = true
 contentdir = "content"
@@ -50,4 +50,30 @@ value = "#96c2d7"
 statement = "#ff8e91"
 
 [taxonomies]
-   tag = "tags"
+tag = "tags"
+
+[menu]
+[[menu.main]]
+name = "Home"
+pre = "home"
+url = "/"
+weight = 1
+
+[[menu.main]]
+name = "Blog"
+pre = "edit"
+url = "/blog/"
+weight = 2
+
+[[menu.main]]
+name = "Projects"
+pre = "star"
+url = "/projects/"
+weight = 2
+
+
+[[menu.main]]
+name = "Tags"
+pre = "tag"
+url = "/tags/"
+weight = 3
