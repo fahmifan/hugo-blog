@@ -1,7 +1,8 @@
 ---
-title: "Chat App"
-date: 2018-12-29T10:01:01+07:00
-draft: true
+title: Chat App
+date: 2018-12-29T03:01:01.000Z
+draft: false
+slug: chat-app
 ---
 
 Simple chat app using React + Styled Components

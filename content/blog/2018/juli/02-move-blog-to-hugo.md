@@ -1,9 +1,15 @@
 ---
-title: "Move Blog to Hugo"
-date: 2018-07-19T03:29:18+07:00
-author: "fahmi irfan"
+title: Move Blog to Hugo
+date: 2018-07-18T20:29:18.000Z
+author: fahmi irfan
 draft: false
-tags: [Hugo, Starting, Blog, Git, Submodule]
+tags:
+    - Hugo
+    - Starting
+    - Blog
+    - Git
+    - Submodule
+slug: move-blog-hugo
 ---
 
 So, i just tried Hugo and it was super easy to build static web. The installation is faster and easier compare to jekyll. The build time is also fast. Will try to explore later.

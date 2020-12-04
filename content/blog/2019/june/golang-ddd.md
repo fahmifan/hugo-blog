@@ -1,9 +1,12 @@
 ---
-title: "Domain Driven Design (1)"
-date: 2019-06-24T08:06:30+07:00
-author: "fahmi irfan"
+title: Domain Driven Design (1)
+date: 2019-06-24T01:06:30.000Z
+author: fahmi irfan
 draft: false
-tags: [DDD, Konsep]
+tags:
+    - DDD
+    - Konsep
+slug: domain-driven-design-1-
 ---
 
 Dalam kehidupan, manusia tidak lepas dari pekerjaan. Pekerjaan yang dilakukan pun terkadang berulang dan memiliki pola tersendiri. Ada kalanya bertemu masalah kecepatan dan kapasitas dalam bekerja. Pekerjaan atau proses yang berulang dapat dilakukan otomasi menggunakan software. Selain itu, software dapat digunakan dalam pemecahan masalah. 

@@ -1,7 +1,7 @@
 ---
 title: "About"
 date: 2018-02-01T01:37:37+07:00
-draft: true
+draft: false
 ---
 
 I'm Muhammad Fahmi Irfananda. I'm working as Backend Engineer at [kumparan](kumparan.com) and also final year student of Computer Science in Padjadjaran University.

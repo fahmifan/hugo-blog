@@ -1,7 +1,8 @@
 ---
-title: "Mandala App Prototype"
-date: 2018-07-12T06:51:57+07:00
-draft: true
+title: Mandala App Prototype
+date: 2018-07-11T23:51:57.000Z
+draft: false
+slug: mandala-app-prototype
 ---
 
 ## Manuskrip Dalam Aplikasi

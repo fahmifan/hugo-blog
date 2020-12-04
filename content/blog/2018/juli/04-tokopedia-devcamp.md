@@ -1,9 +1,14 @@
 ---
-title: "Tokopedia Devcamp: Online Test"
-date: 2018-07-23T16:01:57+07:00
-author: "fahmi irfan"
+title: 'Tokopedia Devcamp: Online Test'
+date: 2018-07-23T09:01:57.000Z
+author: fahmi irfan
 draft: false
-tags: [Test, Bootcamp, Tokopedia, Devcamp]
+tags:
+    - Test
+    - Bootcamp
+    - Tokopedia
+    - Devcamp
+slug: tokopedia-devcamp-online-test
 ---
 
 So, today i just did my online test for Tokopedia Devcamp 2018. This is my second time do online test, and it not that bad. Before, i was always feeling that i woludn't survive on algorithmic test type. The reason for this is because when i take algorithm class in my first year, i did not that good. Sometimes i get overwhelmed to solve a pyramid stars.

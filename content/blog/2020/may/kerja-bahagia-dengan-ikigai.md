@@ -1,9 +1,12 @@
 ---
-title: "Kerja Bahagia Dengan Ikigai"
-date: 2020-05-17T16:04:03+07:00
+title: Kerja Bahagia Dengan Ikigai
+date: 2020-05-17T09:04:03.000Z
 draft: true
-author: "fahmi irfan"
-tags: [Personal Development, Pendidikan]
+author: fahmi irfan
+tags:
+    - Personal Development
+    - Pendidikan
+slug: kerja-bahagia-dengan-ikigai
 ---
 
 Hari ini gw menemukan artikel [menarik](https://iqbalhariadi.com/2020/01/09/chris-do-is-the-man/) yang ditulis oleh [Iqbal Hariadi](https://iqbalhariadi.com). Salah satu cara belajar yg skut adalah kita berguru pada role model. Yang pastinya, dia adalah sosok yg klop sama kita. Dari yang gw tau, orang-orang ini kalo ngobrol itu enak didenger, gampang dicerna, dan bisa jadi influencer buat banyak orang.

@@ -1,7 +1,8 @@
 ---
-title: "Opening Bubur Resto"
-date: 2017-08-16T15:35:17+07:00
+title: Opening Bubur Resto
+date: 2017-08-16T08:35:17.000Z
 draft: false
+slug: opening-bubur-resto
 ---
 
 My family just open a bubur resto. The taste is delicious, really :D. It located in Ahmad Yani Street No.909, Bandung. This is what it looks like: 

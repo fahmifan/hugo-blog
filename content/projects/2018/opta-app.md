@@ -1,7 +1,8 @@
 ---
-title: "Opta App"
-date: 2018-11-26T11:29:41+07:00
-draft: true
+title: Opta App
+date: 2018-11-26T04:29:41.000Z
+draft: false
+slug: opta-app
 ---
 
 OPTA (Online Payment for Transportation) is a application for easing bus (like Damri) payment.
