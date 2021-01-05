@@ -12,7 +12,7 @@ It uses QR Scanner for the payment method. It differ from already known QR payme
 
 <img src="https://raw.githubusercontent.com/miun173/photos/master/opta-app/opta-bayar-bus.gif" alt="Payment" style="margin: auto;">
 
-[OPTA Passenger](https://github.com/miun173/opta-fe)
+[OPTA Passenger](https://github.com/fahmifan/opta-fe)
 
 [OPTA Admin (+Backend)](https://github.com/IbnuAhsani/OPTA-Backend)
 

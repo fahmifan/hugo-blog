@@ -7,6 +7,6 @@ slug: chat-app
 
 Simple chat app using React + Styled Components
 
-[Github](https://github.com/miun173/chat-app)
+[Github](https://github.com/fahmifan/chat-app)
 
 ![Chat App](https://raw.githubusercontent.com/miun173/photos/master/chat-app/chat-app.gif)
