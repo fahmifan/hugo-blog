@@ -8,7 +8,7 @@ Goal:
 - setup caddy web server as user systemd service
 
 Steps:
-- create working directory (workid) 
+- create working directory (workdir) 
     ```
     mkdir -p ~/admin/caddy
     ```
