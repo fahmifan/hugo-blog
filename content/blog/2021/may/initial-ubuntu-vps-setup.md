@@ -1,7 +1,7 @@
 ---
 title: "Initial Ubuntu Vps Setup"
 date: 2021-05-08T06:52:16+07:00
-draft: true
+draft: false
 ---
 
 Goal:

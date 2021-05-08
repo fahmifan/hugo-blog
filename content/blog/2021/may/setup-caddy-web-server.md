@@ -1,7 +1,7 @@
 ---
 title: "Setup Caddy Web Server"
 date: 2021-05-08T21:03:22+07:00
-draft: true
+draft: false
 ---
 
 Goal:
