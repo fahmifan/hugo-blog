@@ -8,7 +8,6 @@ Goal:
 - setup user untuk `deployr`
 - referensi: [Initial Server Setup with Ubuntu 20.04](https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-20-04)
 
-## Setup User
 Steps:
 - buat instance di vps provider
     - kalau pakai linode tambahkan ssh laptop biar ga perlu input password pas ssh as `root`
