@@ -1,7 +1,12 @@
 ---
 title: "Setup Bluetooth Adapter on Linux"
 date: 2021-06-09T06:52:16+07:00
-draft: true
+draft: false
+tags:
+    - linux
+    - bluetooth
+    - firmware
+    - driver
 ---
 
 I have a desktop with Linux installed on it and i would like to add bluetooth adapter for it. This is my Linux version
