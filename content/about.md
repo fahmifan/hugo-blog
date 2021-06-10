@@ -4,12 +4,10 @@ date: 2018-02-01T01:37:37+07:00
 draft: false
 ---
 
-I'm Muhammad Fahmi Irfananda. I'm working as Backend Engineer at [kumparan](kumparan.com) and also final year student of Computer Science in Padjadjaran University.
+Hi! I'm Fahmi Irfan, a graduate from Padjadjaran University majoring in computer science. Currently, I'm develops, maintains & improves backend services at [kumparan](kumparan.com) using Go and some Python.
 
-I have been pursuing the applications development for the past year in and out of lectures. So, I'm very familiar with it. You can check my projects [here](https://miun173.github.io/projects/)
-
-I have experience as lab teaching assitant at my university, also an active member of Developer Community at my Hima (Himpunan Mahasiswa).
+I have been pursuing the applications development especially around the web technology. You can check my [blog](/blog/) and [projects](/projects/)
 
 Please email me to talk more :)
   
-[fahmifan173@gmail.com](mailto:fahmifan173@gmail.com)
+[me@fahmifan.id](mailto:me@fahmifan.id)
