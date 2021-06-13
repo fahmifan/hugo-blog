@@ -296,4 +296,4 @@ PASS
 ok  	github.com/fahmifan/lrucache	4.228s
 ```
 
-That's the LRU Cache on how you can implement it in Go :)
+That's the LRU Cache and how you can implement it in Go :)
