@@ -10,11 +10,9 @@ tags:
 ---
 
 # What is LRU cache
-A cache is a way to store a data that accessed frequetnly and need to be fast. 
-We can use cache to store a result from a computation or result of SQL query. Cache usually stored in memory with key-value style to make sure it fast to store item and accessed. 
+A cache is a way to store data that accessed frequently and needs to be fast. We can use cache to store a result from computation or result of SQL query. A cache is usually stored in memory with a key-value style to make sure it fast to store item and access.
 
-One of the cache algorithm is LRU or *Least Recently Used*. 
-LRU will limit the memory usage by gives maximum items that can be stored. When there is new item to be store and it already reachs the limit, it discards the least used item.
+One of the cache algorithms is LRU or *Least Recently Used*. LRU will limit the memory usage by gives maximum items that can be stored. When there is a new item to be store and it already reached the limit, it discards the least used item.
 
 # How to make LRU Cache in GO
 
@@ -24,7 +22,7 @@ LRU will limit the memory usage by gives maximum items that can be stored. When 
 > - [lrucache (non concurrent)](https://github.com/fahmifan/lrucache/tree/lru-no-concurrency)
 > - [lrucache (concurrent)](https://github.com/fahmifan/lrucache)
 
-There is two main component in LRU cache, those are `Queue` and `Hash Map`. The `Queue` is used to store the items that implemented in linked list, while the `Hash Map` is used to make the complexity `O(1)` when accessed.
+There are two main components in LRU cache, those are `Queue` and `Hash Map`. The `Queue` is used to store the items that implemented in a linked list, while the `Hash Map` is used to make the complexity `O(1)` when accessed.
 
 ![Queue & Hash Map](/photos/lru-cache/queue-and-hash.png)
 
@@ -54,9 +52,9 @@ type Item struct {
 }
 ```
 
-We will create three methods for the queue `InsertFirst`, `RemoveLast` and `RemoveNode`. 
+We will create three methods for the queue `InsertFirst`, `RemoveLast`, and `RemoveNode`. 
 
-The structure of the Node. It has three parts, `prev`, `value`, and `next`. The `prev` and `next` are pointers to an adjecent node. The `value` is an `interface{}` that can hold any data types.
+The structure of the Node. It has three parts, `prev`, `value`, and `next`. The `prev` and `next` are pointers to an adjacent node. The `value` is an `interface{}` that can hold any data type.
 ![a node](/photos/lru-cache/node.png)
 
 These are algorithm and code for `InsertFirst`
@@ -159,7 +157,7 @@ func (q *Queue) isOne() bool {
 }
 ```
 
-The `breakLinks` method are implemented as follows
+The `breakLinks` method is implemented as follows
 ```go
 // set next & prev to nil
 func (n *Node) breakLinks() {
@@ -260,11 +258,11 @@ func (l *LRUCacher) Del(key string) interface{} {
 ```
 
 # Notes on Implement Synchronization for Concurrency
-The previous codes works for non concurrent usage, because when accessing & writing to the hash map or queue, there are needs for lock and synchronization. Also keep in minds, that adding synchronization will impact the performance.
+The previous codes work for non-concurrent usage because when accessing & writing to the hash map or queue, there are needs for lock and synchronization. Also keep in mind, that adding synchronization will impact the performance.
 
-We can use `mutex` for synchronization. In Go, there are two types of mutex, `Mutex` and `RWMutex`. The `Mutex` is general purpose for locking only one goroutine that has access into a resource. The `RWMutex` has two locking mechanism, First is `RLock` that can be hold by multiple gorutines and is used for reading. Second is `Lock` that can only be hold by one goroutine and is used for writng.
+We can use a `mutex` for synchronization. In Go, there are two types of mutex, a `Mutex` and  a `RWMutex`. The `Mutex` is general purpose for locking only one goroutine that has access to a resource. The `RWMutex` has two locking mechanisms. The first is a `RLock` that can behold by multiple gorutines and is used for reading. The Second is a `Lock` that can only behold by one goroutine and is used for writing.
 
-I use two mutex for `LRUCacher`, `hashMutex` for access & mutating `hash` and `countMutex` when mutate the `count`. Also, to help detecting race condition, i use `-race` flag when running go test
+I use two mutexes for `LRUCacher`, `hashMutex` for access & mutating `hash`, and `countMutex` when mutating the `count`. Also, to help to detects race condition, I use `-race` flag when running the go test
 ```
 go test -race ./...
 ```
