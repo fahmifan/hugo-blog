@@ -18,10 +18,15 @@ LRU will limit the memory usage by gives maximum items that can be stored. When 
 
 # How to make LRU Cache in GO
 
+> TLDR
+>
+> Check the full code in this repo 
+> - [lrucache (non concurrent)](https://github.com/fahmifan/lrucache/tree/lru-no-concurrency)
+> - [lrucache (concurrent)](https://github.com/fahmifan/lrucache)
+
 There is two main component in LRU cache, those are `Queue` and `Hash Map`. The `Queue` is used to store the items that implemented in linked list, while the `Hash Map` is used to make the complexity `O(1)` when accessed.
 
 ![Queue & Hash Map](/photos/lru-cache/queue-and-hash.png)
-
 
 ## Creating Queue
 > Disclaimer
@@ -167,4 +172,130 @@ func (n *Node) breakLinks() {
 }
 ```
 
-# Implement Synchronization for Concurrency
+## Creating LRUCacher
+
+```go
+// LRUCacher not concurrent safe
+type LRUCacher struct {
+	queue       *Queue
+	hash        map[string]*Node
+	MaxSize     int
+	count int
+}
+```
+
+Codes for Put
+```go
+// Put set new or replace existing item
+func (l *LRUCacher) Put(key string, value interface{}) {
+	if l.MaxSize < 1 {
+		l.MaxSize = DefaultMaxSize
+	}
+
+	if l.queue == nil {
+		l.queue = NewQueue()
+	}
+
+	if l.hash == nil {
+		l.hash = make(map[string]*Node)
+	}
+
+	item := Item{
+		Key:   key,
+		Value: value,
+	}
+
+	// if key already exist just replace the cache item
+	oldNode, ok := l.hash[key]
+	if ok {
+		oldNode.item = item
+		return
+	}
+
+	node := &Node{item: item}
+	if l.queueIsFull() {
+		last := l.queue.RemoveLast()
+		l.removeItem(last.item)
+
+		l.hash[key] = node
+		l.queue.InsertFirst(node)
+		return
+	}
+
+	l.hash[key] = node
+	l.queue.InsertFirst(node)
+	l.count++
+}
+```
+
+Codes for Get
+```go
+func (l *LRUCacher) Get(key string) interface{} {
+	if l.hash == nil {
+		return nil
+	}
+
+	val, ok := l.hash[key]
+	if !ok {
+		return nil
+	}
+
+	return val.item.Value
+}
+```
+
+Codes for Del
+```go
+func (l *LRUCacher) Del(key string) interface{} {
+	node, ok := l.hash[key]
+	if !ok {
+		return nil
+	}
+
+	l.queue.RemoveNode(node)
+	l.removeItem(node.item)
+    l.count--
+	return node.item.Value
+}
+```
+
+# Notes on Implement Synchronization for Concurrency
+The previous codes works for non concurrent usage, because when accessing & writing to the hash map or queue, there are needs for lock and synchronization. Also keep in minds, that adding synchronization will impact the performance.
+
+We can use `mutex` for synchronization. In Go, there are two types of mutex, `Mutex` and `RWMutex`. The `Mutex` is general purpose for locking only one goroutine that has access into a resource. The `RWMutex` has two locking mechanism, First is `RLock` that can be hold by multiple gorutines and is used for reading. Second is `Lock` that can only be hold by one goroutine and is used for writng.
+
+I use two mutex for `LRUCacher`, `hashMutex` for access & mutating `hash` and `countMutex` when mutate the `count`. Also, to help detecting race condition, i use `-race` flag when running go test
+```
+go test -race ./...
+```
+
+The rest of the code can be checked in this repo [lrucache](https://github.com/fahmifan/lrucache)
+```go
+type LRUCacher struct {
+	maxSize int64
+
+	queue      *Queue
+	count      int64
+	countMutex sync.RWMutex
+
+	hash      map[string]*Node
+	hashMutex sync.RWMutex
+}
+```
+
+The benchmark
+```
+go test -benchmem -run=^$ -bench ^(BenchmarkLRUCacher)$ github.com/fahmifan/lrucache
+
+goos: linux
+goarch: amd64
+pkg: github.com/fahmifan/lrucache
+cpu: Intel(R) Core(TM) i5-7400 CPU @ 3.00GHz
+BenchmarkLRUCacher/Put-4         	 2777412	       415.7 ns/op	      89 B/op	       4 allocs/op
+BenchmarkLRUCacher/Get-4         	 9061254	       130.3 ns/op	      16 B/op	       1 allocs/op
+BenchmarkLRUCacher/Del-4         	11411762	       105.7 ns/op	      12 B/op	       1 allocs/op
+PASS
+ok  	github.com/fahmifan/lrucache	4.228s
+```
+
+That's the LRU Cache on how you can implement it in Go :)
