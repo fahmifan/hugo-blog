@@ -260,7 +260,7 @@ func (l *LRUCacher) Del(key string) interface{} {
 # Notes on Implement Synchronization for Concurrency
 The previous codes work for non-concurrent usage because when accessing & writing to the hash map or queue, there are needs for lock and synchronization. Also keep in mind, that adding synchronization will impact the performance.
 
-We can use a `mutex` for synchronization. In Go, there are two types of mutex, a `Mutex` and  a `RWMutex`. The `Mutex` is general purpose for locking only one goroutine that has access to a resource. The `RWMutex` has two locking mechanisms. The first is a `RLock` that can behold by multiple gorutines and is used for reading. The Second is a `Lock` that can only behold by one goroutine and is used for writing.
+We can use a `mutex` for synchronization. In Go, there are two types of mutex, a `Mutex` and  an `RWMutex`. The `Mutex` is general purpose for locking only one goroutine that has access to a resource. The `RWMutex` has two locking mechanisms. The first is a `RLock` that can behold by multiple gorutines and is used for reading. The Second is a `Lock` that can only behold by one goroutine and is used for writing.
 
 I use two mutexes for `LRUCacher`, `hashMutex` for access & mutating `hash`, and `countMutex` when mutating the `count`. Also, to help to detects race condition, I use `-race` flag when running the go test
 ```
