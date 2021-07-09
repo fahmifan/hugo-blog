@@ -5,7 +5,7 @@ draft: false
 ---
 
 I decided to buy a Veikk pen tablet S640, but it's drivers only for Mac and Windows.
-And fortunately, there are [driver](github.com/jlam55555/veikk-linux-driver) and [GUI tools](github.com/jlam55555/veikk-linux) for the S640 from [jlam55555](github.com/jlam55555).
+And fortunately, there are [driver](https://github.com/jlam55555/veikk-linux-driver) and [GUI tools](https://github.com/jlam55555/veikk-linux) for the S640 from [jlam55555](github.com/jlam55555).
 
 Following the installation guides, voila! enjoy your pen tablet on Linux.
 
