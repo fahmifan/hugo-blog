@@ -51,3 +51,51 @@ func resize(filepath, filename string) error {
 	return bimg.Write(path.Join(outdir, filename), newImage)
 }
 ```
+
+To make the code *faster*, we can utilized goroutine. Here i spawned 4 goroutine that resize the images concurently.
+```go
+type resizeJob struct {
+	FilePath string
+	FileName string
+}
+
+func main() {
+	jobChan := make(chan resizeJob, 4)
+
+	wg := &sync.WaitGroup{}
+	nworker := 4
+	// spawn workers
+	for i := 0; i < nworker; i++ {
+		wg.Add(1)
+		go worker(wg, jobChan)
+	}
+
+	err := filepath.Walk(root, func(path string, info fs.FileInfo, err error) error {
+		if info.IsDir() {
+			return nil
+		}
+		// enqueue jobs
+		jobChan <- resizeJob{FilePath: path, FileName: info.Name()}
+		return nil
+	})
+	close(jobChan)
+	if err != nil {
+        fmt.Fprintln(os.Stderr, err.Error())
+		return
+	}
+
+	// wait for workers to finished
+	wg.Wait()
+	fmt.Println("done")
+}
+
+func worker(wg *sync.WaitGroup, jobChan chan resizeJob) {
+	defer wg.Done()
+	for file := range jobChan {
+		err := resize(file.FilePath, file.FileName)
+		if err != nil {
+			fmt.Fprintln(os.Stderr, err.Error())
+		}
+	}
+}
+```
