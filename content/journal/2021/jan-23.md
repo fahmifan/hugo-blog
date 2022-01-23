@@ -31,5 +31,5 @@ draft: false
     ```
 - [Gerrit Code Review | Gerrit Code Review](https://www.gerritcodereview.com/index.html)
   - This is a code review tool used by Google
-  - Quite interesting, have many tools
+  - Quite interesting, have many features
   - One of them are Go: [status:open -is:wip · Gerrit Code Review](https://go-review.googlesource.com/q/status:open+-is:wip)
