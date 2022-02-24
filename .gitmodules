@@ -1,11 +1,11 @@
 [submodule "public"]
 	path = public
-	url = git@github.com:miun173/miun173.github.io.git
+	url = git@github.com:fahmifan/fahmifan.github.io.git
 	branch = master
 [submodule "themes/cocoa-eh"]
 	path = themes/cocoa-eh
-	url = git@github.com:miun173/cocoa-eh.git
+	url = git@github.com:fahmifan/cocoa-eh.git
 	branch = master
 [submodule "static/photos"]
 	path = static/photos
-	url = git@github.com:miun173/photos.git
+	url = git@github.com:fahmifan/photos.git
